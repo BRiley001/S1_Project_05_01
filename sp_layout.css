@@ -14,16 +14,21 @@
 */
 
 /* Window and Body Styles */
+/* the page will always go the full length available */
 html {
     height: 100%;
 }
 
+/* the body takes up most of the width, will be centered and only shrink or grow so large or small before not changing*/
 body {
     width: 95%;
     min-width: 640px;
     max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* the header, unordered lists, navigation lists, list items, and hypertext will all you the border box sizing (takes away from other boxes) */
 header,
 ul,
 nav,
@@ -34,6 +39,7 @@ a {
 
 /* Row Styles */
 
+/* any rows that are after will clear both sides */
 .row::after {
     content: "";
     clear: both;
@@ -44,30 +50,111 @@ a {
 
 /* Page Header Styles */
 
-body>header {}
+/* images in the header that are in the body will take up only the needed space, only be so much of the width, and go on the left */
+header>img {
+    display: block;
+    width: 70%;
+    float: left;
+}
+
+/* navigation lists in the header will float left, go slightly further to the left and right, and take up 30% of their parents space */
+header>nav {
+    float: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 30%;
+}
+
+/* hypertext in the navigation list that is in the header will take up only its needed space, and take the full width of their parents */
+header>nav a {
+    display: block;
+    width: 100%;
+}
 
 
 
 
 /* Horizontal Navigation List Styles */
 
-
+/* any list items within the navigation list with the class horizontal, will take up only the needed space, have a width of 1/8 its parent, and stay to the left */
+nav.horizontal li {
+    display: block;
+    width: 12.5%;
+    float: left;
+}
 
 
 /* Topics Styles */
 
+/* list items within the list with the id of 'topics' will have a width of 1/5 their parent, stay to the left, and be slightly offset from the right side */
+ul#topics>li {
+    display: block;
+    width: 20%;
+    float: left;
+    margin-left: 0%;
+    margin-right: 1.5%;
+}
 
+/* the first list item will be offset from the left side */
+#topics li:first-of-type {
+    margin-left: 7.75%;
+}
 
+/* the last list item will be offset from the right side */
+#topics li:last-of-type {
+    margin-right: 7.75%;
+}
 
-
+/* images within list items within the list with the id 'topics', will take up half the width of their parent element, and be centered horizontally */
+ul#topics li img {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* HR Styles */
 
-
+/* the horizontal line below the 'topics' list takes up half the width of its parent */
+hr {
+    width: 50%;
+}
 
 
 /* Customer Comment Styles */
 
+/* the list with the id 'comment' will have a width of most of their parent, be offset from the top and bottom a set ammount, while being horizontally centered */
+ul#comments {
+    width: 75%;
+    margin: 40px auto;
+}
 
+/* list items within the list with the id 'comments' will take up half the widt of its parent, stay to the left, and be offset from the bottom of the page */
+ul#comments li {
+    display: block;
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+/* images within list items within the unordered list with the id 'comments' will take up 1/5 their parent, stay to the left, and be offset from both the left nd right side of the page */
+ul#comments li img {
+    display: block;
+    width: 20%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* any paragraphs within list items within the unordered list 'comments' will stay to the left and have a width of most of its parent element  */
+ul#comments li p {
+    float: left;
+    width: 70%;
+}
 
 /* Footer Styles */
+
+/* the footer will only display when both sides are clear of elements */
+footer {
+    clear: both;
+}
